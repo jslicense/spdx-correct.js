@@ -22,7 +22,7 @@
     "metadata"
   ],
   "license": "Apache-2.0",
-  "main": "source/index.js",
+  "main": "source/spdx-correct.js",
   "repository": "kemitchell/spdx-correct",
   "scripts": {
     "lint": "jshint source && jscs source",
