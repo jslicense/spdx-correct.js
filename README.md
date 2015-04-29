@@ -6,7 +6,7 @@ spdx-correct.js
 [![build status](https://img.shields.io/travis/kemitchell/spdx-correct.js.svg)](http://travis-ci.org/kemitchell/spdx-correct.js)
 
 
-Correct invalid SPDX identifiers
+Correct invalid SPDX identifiers.
 
 <!--js
 var correct = require('./');
