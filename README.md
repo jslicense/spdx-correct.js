@@ -15,7 +15,7 @@ var correct = require('./');
 ```js
 correct('mit'); // => 'MIT'
 
-correct('Apache 2'); // 'Apache-2.0'
+correct('Apache 2'); // => 'Apache-2.0'
 
 correct('No idea what license'); // => null
 ```
