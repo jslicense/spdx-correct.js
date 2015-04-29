@@ -27,6 +27,6 @@
   "scripts": {
     "lint": "jshint source && jscs source",
     "precommit": "npm run lint && npm run test",
-    "test": "jsmd README.md && tap test"
+    "test": "jsmd README.md && tap --timeout 60 test"
   }
 }
