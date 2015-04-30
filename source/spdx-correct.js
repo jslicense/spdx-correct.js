@@ -42,7 +42,8 @@ var lastResorts = [
   ['3 CLAUSE', 'BSD-3-Clause'],
   ['2 CLAUSE', 'BSD-2-Clause'],
   ['UNLI', 'Unlicense'],
-  ['FUCK', 'WTFPL']
+  ['FUCK', 'WTFPL'],
+  ['X11', 'X11']
 ];
 
 var SUBSTRING = 0;
