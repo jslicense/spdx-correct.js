@@ -22,11 +22,11 @@
     "metadata"
   ],
   "license": "Apache-2.0",
-  "main": "source/spdx-correct.js",
+  "main": "spdx-correct.js",
   "repository": "kemitchell/spdx-correct",
   "scripts": {
-    "lint": "jshint source && jscs source",
+    "lint": "jshint spdx-correct.js test && jscs spdx-correct.js test",
     "precommit": "npm run lint && npm run test",
-    "test": "jsmd README.md && tap --timeout 60 test"
+    "test": "jsmd README.md && tap --timeout 120 test"
   }
 }
