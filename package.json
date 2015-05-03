@@ -5,7 +5,7 @@
   "author": "Kyle Mitchell <kyle@kemitchell.com> (http://kemitchell.com)",
   "bugs": "https://github.com/kemitchell/spdx-correct/issues",
   "dependencies": {
-    "spdx": "^0.1.2"
+    "spdx": "0.2.1"
   },
   "devDependencies": {
     "jscs": "^1.13.0",
@@ -27,6 +27,6 @@
   "scripts": {
     "lint": "jshint spdx-correct.js test && jscs spdx-correct.js test",
     "precommit": "npm run lint && npm run test",
-    "test": "jsmd README.md && tap --timeout 120 test"
+    "test": "jsmd README.md && tap test"
   }
 }

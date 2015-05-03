@@ -291,7 +291,6 @@ var examples = {
   'Mit': 'MIT',
   'MiT': 'MIT',
   '"MIT"': 'MIT',
-  '(MIT)': 'MIT',
   'M.I.T.': 'MIT',
   'M.I.T': 'MIT',
   'MIT ': 'MIT',
