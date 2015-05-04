@@ -151,6 +151,7 @@ var lastResorts = [
   ['Affero', 'AGPL-3.0'],
   ['BEER', 'Beerware'],
   ['BOOST', 'BSL-1.0'],
+  ['BSD', 'BSD-2-Clause'],
   ['ECLIPSE', 'EPL-1.0'],
   ['FUCK', 'WTFPL'],
   ['GNU', 'GPL-3.0'],
