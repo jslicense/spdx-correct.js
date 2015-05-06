@@ -1,7 +1,7 @@
 {
   "name": "spdx-correct",
   "description": "correct invalid SPDX identifiers",
-  "version": "1.0.0-prerelease-2",
+  "version": "1.0.0-prerelease-3",
   "author": "Kyle Mitchell <kyle@kemitchell.com> (http://kemitchell.com)",
   "bugs": "https://github.com/kemitchell/spdx-correct/issues",
   "dependencies": {
