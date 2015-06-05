@@ -8,10 +8,10 @@
     "spdx": "^0.4.0"
   },
   "devDependencies": {
-    "jscs": "^1.13.0",
-    "jshint": "^2.7.0",
-    "jsmd": "^0.3.0",
-    "tap": "^0.7.1"
+    "jscs": "~1.13.1",
+    "jshint": "~2.8.0",
+    "jsmd": "~0.3.0",
+    "tap": "~1.2.0"
   },
   "homepage": "https://github.com/kemitchell/spdx-correct.js",
   "keywords": [
