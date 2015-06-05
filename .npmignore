@@ -1,5 +1,6 @@
 .gitignore
 .jscsrc
 .jshintrc
-test
+.npmignore
 .travis.yml
+test
