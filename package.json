@@ -3,7 +3,7 @@
   "description": "correct invalid SPDX identifiers",
   "version": "1.0.0-prerelease-3",
   "author": "Kyle Mitchell <kyle@kemitchell.com> (http://kemitchell.com)",
-  "bugs": "https://github.com/kemitchell/spdx-correct/issues",
+  "bugs": "https://github.com/kemitchell/spdx-correct.js/issues",
   "dependencies": {
     "spdx": "^0.4.0"
   },
@@ -13,7 +13,7 @@
     "jsmd": "^0.3.0",
     "tap": "^0.7.1"
   },
-  "homepage": "https://github.com/kemitchell/spdx-correct",
+  "homepage": "https://github.com/kemitchell/spdx-correct.js",
   "keywords": [
     "SPDX",
     "law",
@@ -23,7 +23,7 @@
   ],
   "license": "Apache-2.0",
   "main": "spdx-correct.js",
-  "repository": "kemitchell/spdx-correct",
+  "repository": "kemitchell/spdx-correct.js",
   "scripts": {
     "lint": "jshint spdx-correct.js test && jscs spdx-correct.js test",
     "precommit": "npm run lint && npm run test",
