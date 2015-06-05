@@ -17,7 +17,7 @@
     "jscs": "~1.13.1",
     "jshint": "~2.8.0",
     "jsmd": "~0.3.0",
-    "tap": "~1.2.0"
+    "tape": "~4.0.0"
   },
   "homepage": "https://github.com/kemitchell/spdx-correct.js",
   "keywords": [
@@ -36,6 +36,6 @@
   "scripts": {
     "lint": "jshint spdx-correct.js test && jscs spdx-correct.js test",
     "precommit": "npm run lint && npm run test",
-    "test": "jsmd README.md && tap test"
+    "test": "jsmd README.md && tape test/*.test.js"
   }
 }

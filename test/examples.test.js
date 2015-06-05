@@ -1,4 +1,4 @@
-var test = require('tap').test;
+var test = require('tape');
 var spdx = require('spdx');
 var correct = require('..');
 
