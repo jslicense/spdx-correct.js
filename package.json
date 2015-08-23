@@ -2,14 +2,7 @@
   "name": "spdx-correct",
   "description": "correct invalid SPDX identifiers",
   "version": "1.0.0",
-  "author": {
-    "name": "Kyle E. Mitchell",
-    "email": "kyle@kemitchell.com",
-    "url": "http://kemitchell.com"
-  },
-  "bugs": {
-    "url": "https://github.com/kemitchell/spdx-correct.js/issues"
-  },
+  "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com)",
   "dependencies": {
     "spdx-license-ids": "^1.0.2"
   },
@@ -18,7 +11,6 @@
     "spdx-expression-parse": "^1.0.0",
     "tape": "~4.0.0"
   },
-  "homepage": "https://github.com/kemitchell/spdx-correct.js",
   "keywords": [
     "SPDX",
     "law",
@@ -27,10 +19,7 @@
     "metadata"
   ],
   "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kemitchell/spdx-correct.js"
-  },
+  "repository": "kemitchell/spdx-correct.js",
   "scripts": {
     "test": "jsmd README.md && tape test/*.test.js"
   }
