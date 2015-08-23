@@ -14,8 +14,6 @@
     "spdx-license-ids": "^1.0.2"
   },
   "devDependencies": {
-    "jscs": "~1.13.1",
-    "jshint": "~2.8.0",
     "jsmd": "~0.3.0",
     "spdx-expression-parse": "^1.0.0",
     "tape": "~4.0.0"
@@ -35,8 +33,6 @@
     "url": "git+https://github.com/kemitchell/spdx-correct.js"
   },
   "scripts": {
-    "lint": "jshint spdx-correct.js test && jscs spdx-correct.js test",
-    "precommit": "npm run lint && npm run test",
     "test": "jsmd README.md && tape test/*.test.js"
   }
 }
