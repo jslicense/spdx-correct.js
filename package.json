@@ -27,7 +27,6 @@
     "metadata"
   ],
   "license": "Apache-2.0",
-  "main": "spdx-correct.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kemitchell/spdx-correct.js"
