@@ -7,7 +7,8 @@
     "spdx-license-ids": "^1.0.2"
   },
   "devDependencies": {
-    "jsmd": "~0.3.0",
+    "defence-cli": "^1.0.1",
+    "replace-require-self": "^1.0.0",
     "spdx-expression-parse": "^1.0.0",
     "tape": "~4.0.0"
   },
@@ -21,6 +22,6 @@
   "license": "Apache-2.0",
   "repository": "kemitchell/spdx-correct.js",
   "scripts": {
-    "test": "jsmd README.md && tape test/*.test.js"
+    "test": "defence README.md | replace-require-self | node && tape *.test.js"
   }
 }

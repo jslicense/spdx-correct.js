@@ -1,6 +1,6 @@
 var test = require('tape');
 var parse = require('spdx-expression-parse');
-var correct = require('..');
+var correct = require('./');
 
 function valid(string) {
   try {
