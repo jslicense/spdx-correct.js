@@ -1,6 +1,15 @@
 var test = require('tape');
-var spdx = require('spdx');
+var parse = require('spdx-expression-parse');
 var correct = require('..');
+
+function valid(string) {
+  try {
+    parse(string);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
 
 var examples = {
   ' Apache License V2': 'Apache-2.0',
@@ -207,10 +216,8 @@ var examples = {
   'GPL3.0+': 'GPL-3.0',
   'GPLV2': 'GPL-2.0',
   'GPLV3': 'GPL-3.0',
-  'GPLv2 or later': 'GPL-2.0+',
   'GPLv2': 'GPL-2.0',
   'GPLv2+': 'GPL-2.0',
-  'GPLv3 or later': 'GPL-3.0+',
   'GPLv3': 'GPL-3.0',
   'GPLv3+': 'GPL-3.0',
   'GPLv3.0': 'GPL-3.0',
@@ -232,7 +239,6 @@ var examples = {
   'Isc': 'ISC',
   'LGLP3': 'LGPL-3.0',
   'LGPL 2.1': 'LGPL-2.1',
-  'LGPL 3 or later': 'LGPL-3.0+',
   'LGPL 3': 'LGPL-3.0',
   'LGPL 3.0': 'LGPL-3.0',
   'LGPL Version 3.0': 'LGPL-3.0',
@@ -356,11 +362,11 @@ test('examples', function(test) {
         test.equal(
           correct(input),
           corrected,
-          'corrects "' + input + '" to "' + corrected
+          'corrects "' + input + '" to "' + corrected + '"'
         );
         if (corrected !== null) {
           test.ok(
-            spdx.valid(corrected),
+            valid(corrected),
             '"' + corrected + '" is a valid SPDX identifier'
           );
         }
