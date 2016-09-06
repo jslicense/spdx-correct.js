@@ -79,7 +79,7 @@ var transforms = [
   },
   // e.g. 'ZLIB'
   function(argument) {
-    return argument[0].toUpperCase() + argument.slice(1);
+    return argument.charAt(0) + argument.slice(1);
   },
   // e.g. 'MPL/2.0'
   function(argument) {
