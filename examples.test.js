@@ -378,3 +378,10 @@ test('examples', function (test) {
     })
   test.end()
 })
+
+test('Empty String', function (test) {
+  test.throws(function () {
+    correct('')
+  }, /invalid argument/i)
+  test.end()
+})

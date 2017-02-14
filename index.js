@@ -215,6 +215,13 @@ var anyCorrection = function (identifier, check) {
 }
 
 module.exports = function (identifier) {
+  var validArugment = (
+    typeof identifier === 'string' &&
+    identifier.trim().length !== 0
+  )
+  if (!validArugment) {
+    throw Error('Invalid argument. Expected non-empty string.')
+  }
   identifier = identifier.replace(/\+$/, '').trim()
   if (valid(identifier)) {
     return identifier
