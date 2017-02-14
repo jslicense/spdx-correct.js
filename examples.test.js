@@ -1,16 +1,17 @@
-var test = require('tape');
-var parse = require('spdx-expression-parse');
-var correct = require('./');
+var test = require('tape')
+var parse = require('spdx-expression-parse')
+var correct = require('./')
 
-function valid(string) {
+function valid (string) {
   try {
-    parse(string);
-    return true;
+    parse(string)
+    return true
   } catch (e) {
-    return false;
+    return false
   }
 }
 
+/* eslint-disable max-len */
 var examples = {
   '(MIT OR Apache-2.0)': '(MIT OR Apache-2.0)',
   ' Apache License V2': 'Apache-2.0',
@@ -304,7 +305,7 @@ var examples = {
   'MIT_License': 'MIT',
   'MITt': 'MIT',
   'MPL 2': 'MPL-2.0',
-  'MPL 2.0':'MPL-2.0',
+  'MPL 2.0': 'MPL-2.0',
   'MPL V2': 'MPL-2.0',
   'MPL v2': 'MPL-2.0',
   'MPL v2.0': 'MPL-2.0',
@@ -351,28 +352,29 @@ var examples = {
   'ZLIB': 'Zlib',
   'Zlib': 'Zlib',
   'Zlib/libpng': 'Zlib',
-  'mit':'MIT',
+  'mit': 'MIT',
   '© 2014 WTFPL – Do What the Fuck You Want to Public License.': 'WTFPL'
-};
+}
+/* eslint-enable max-len */
 
-test('examples', function(test) {
+test('examples', function (test) {
   Object.keys(examples)
-    .forEach(function(input) {
-      var corrected = examples[input];
-      test.test(input, function(test) {
+    .forEach(function (input) {
+      var corrected = examples[input]
+      test.test(input, function (test) {
         test.equal(
           correct(input),
           corrected,
           'corrects "' + input + '" to "' + corrected + '"'
-        );
+        )
         if (corrected !== null) {
           test.ok(
             valid(corrected),
             '"' + corrected + '" is a valid SPDX identifier'
-          );
+          )
         }
-        test.end();
-      });
-    });
-  test.end();
-});
+        test.end()
+      })
+    })
+  test.end()
+})

@@ -10,6 +10,8 @@
     "defence-cli": "^1.0.1",
     "replace-require-self": "^1.0.0",
     "spdx-expression-parse": "^1.0.0",
+    "standard": "^8.6.0",
+    "standard-markdown": "^2.3.0",
     "tape": "~4.0.0"
   },
   "keywords": [
@@ -22,6 +24,7 @@
   "license": "Apache-2.0",
   "repository": "kemitchell/spdx-correct.js",
   "scripts": {
-    "test": "defence README.md | replace-require-self | node && tape *.test.js"
+    "test": "defence README.md | replace-require-self | node && tape *.test.js",
+    "lint": "standard && standard-markdown"
   }
 }
