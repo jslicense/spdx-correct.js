@@ -1,7 +1,12 @@
-var licenseIDs = require('spdx-license-ids');
+var parse = require('spdx-expression-parse');
 
 function valid(string) {
-  return licenseIDs.indexOf(string) > -1;
+  try {
+    parse(string);
+    return true
+  } catch (error) {
+    return false;
+  }
 }
 
 // Common transpositions of license identifier acronyms

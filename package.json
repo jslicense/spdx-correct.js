@@ -4,7 +4,7 @@
   "version": "1.0.2",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com)",
   "dependencies": {
-    "spdx-license-ids": "^1.0.2"
+    "spdx-expression-parse": "^1.0.4"
   },
   "devDependencies": {
     "defence-cli": "^1.0.1",

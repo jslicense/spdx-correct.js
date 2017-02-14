@@ -12,6 +12,7 @@ function valid(string) {
 }
 
 var examples = {
+  '(MIT OR Apache-2.0)': '(MIT OR Apache-2.0)',
   ' Apache License V2': 'Apache-2.0',
   ' BSD-3-Clause': 'BSD-3-Clause',
   ' GPL-3.0+': 'GPL-3.0',
@@ -25,7 +26,7 @@ var examples = {
   '3-Clause-BSD': 'BSD-3-Clause',
   '3-clause BSD': 'BSD-3-Clause',
   'AGPL 3': 'AGPL-3.0',
-  'AGPL 3.0':'AGPL-3.0',
+  'AGPL 3.0': 'AGPL-3.0',
   'AGPL v3': 'AGPL-3.0',
   'AGPL': 'AGPL-3.0',
   'AGPL, Copyright 2014 uh-sem-blee, Co.': 'AGPL-3.0',
