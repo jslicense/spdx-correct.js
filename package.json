@@ -1,6 +1,6 @@
 {
   "name": "spdx-correct",
-  "description": "correct invalid SPDX identifiers",
+  "description": "correct invalid SPDX expressions",
   "version": "1.0.2",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com)",
   "dependencies": {
