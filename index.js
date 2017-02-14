@@ -175,7 +175,7 @@ var IDENTIFIER = 1;
 
 var validTransformation = function(identifier) {
   for (var i = 0; i < transforms.length; i++) {
-    var transformed = transforms[i](identifier);
+    var transformed = transforms[i](identifier).trim();
     if (transformed !== identifier && valid(transformed)) {
       return transformed;
     }
@@ -213,7 +213,7 @@ var anyCorrection = function(identifier, check) {
 };
 
 module.exports = function(identifier) {
-  identifier = identifier.replace(/\+$/, '');
+  identifier = identifier.replace(/\+$/, '').trim();
   if (valid(identifier)) {
     return identifier;
   }
