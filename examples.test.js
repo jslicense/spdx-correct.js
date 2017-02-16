@@ -1,15 +1,6 @@
 var test = require('tape')
-var parse = require('spdx-expression-parse')
+var valid = require('validate-npm-package-license')
 var correct = require('./')
-
-function valid (string) {
-  try {
-    parse(string)
-    return true
-  } catch (e) {
-    return false
-  }
-}
 
 /* eslint-disable max-len */
 var examples = {
@@ -331,16 +322,18 @@ var examples = {
   'Public Domain <Unlicense>': 'Unlicense',
   'Public domain(unlicense)': 'Unlicense',
   'Public-domain (Unlicense)': 'Unlicense',
+  'SEE LICENSE IN BEER': 'SEE LICENSE IN BEER',
+  'SEE LICENSE IN LICENSE': 'SEE LICENSE IN LICENSE',
   'Standard 3-clause BSD': 'BSD-3-Clause',
   'The Unlicense': 'Unlicense',
   'UNLICENSE': 'Unlicense',
-  'UNLICENSED': 'Unlicense',
+  'UNLICENSED': 'UNLICENSED',
   'UNLICNSE': 'Unlicense',
   'Unlicence': 'Unlicense',
   'Unlicense (http://unlicense.org/)': 'Unlicense',
   'Unlicense (see http://unlicense.org/)': 'Unlicense',
   'Unlicense': 'Unlicense',
-  'Unlicensed': 'Unlicense',
+  'Unlicensed': 'UNLICENSED',
   'WTF': 'WTFPL',
   'WTFGPL': 'WTFPL',
   'WTFPL 2': 'WTFPL',
@@ -360,19 +353,19 @@ var examples = {
 test('examples', function (test) {
   Object.keys(examples)
     .forEach(function (input) {
-      var corrected = examples[input]
+      var expected = examples[input]
       test.test(input, function (test) {
+        var actual = correct(input)
         test.equal(
-          correct(input),
-          corrected,
-          'corrects "' + input + '" to "' + corrected + '"'
+          actual, expected,
+          'corrects "' + input + '" to "' + expected + '"'
         )
-        if (corrected !== null) {
-          test.ok(
-            valid(corrected),
-            '"' + corrected + '" is a valid SPDX identifier'
-          )
-        }
+        // also test expected just as a double check that our test case is correct
+        ;[actual, expected].forEach(function (name) {
+          if (name !== null) {
+            test.ok(valid(name).validForNewPackages, '"' + name + '" is a valid SPDX identifier')
+          }
+        })
         test.end()
       })
     })
