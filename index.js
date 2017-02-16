@@ -1,4 +1,4 @@
-var valid = require('validate-npm-package-license');
+var valid = require('validate-npm-package-license')
 
 // Common transpositions of license identifier acronyms
 var transpositions = [

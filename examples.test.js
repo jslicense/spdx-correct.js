@@ -1,5 +1,5 @@
 var test = require('tape')
-var valid = require('validate-npm-package-license');
+var valid = require('validate-npm-package-license')
 var correct = require('./')
 
 /* eslint-disable max-len */
@@ -355,17 +355,17 @@ test('examples', function (test) {
     .forEach(function (input) {
       var expected = examples[input]
       test.test(input, function (test) {
-        var actual = correct(input);
+        var actual = correct(input)
         test.equal(
           actual, expected,
           'corrects "' + input + '" to "' + expected + '"'
-        );
+        )
         // also test expected just as a double check that our test case is correct
-        [actual, expected].forEach(function (name) {
+        ;[actual, expected].forEach(function (name) {
           if (name !== null) {
-            test.ok(valid(name).validForNewPackages, '"' + name + '" is a valid SPDX identifier');
+            test.ok(valid(name).validForNewPackages, '"' + name + '" is a valid SPDX identifier')
           }
-        });
+        })
         test.end()
       })
     })
