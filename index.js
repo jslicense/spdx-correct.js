@@ -1,13 +1,4 @@
-var parse = require('spdx-expression-parse')
-
-function valid (string) {
-  try {
-    parse(string)
-    return true
-  } catch (error) {
-    return false
-  }
-}
+var valid = require('validate-npm-package-license');
 
 // Common transpositions of license identifier acronyms
 var transpositions = [
@@ -178,7 +169,7 @@ var IDENTIFIER = 1
 var validTransformation = function (identifier) {
   for (var i = 0; i < transforms.length; i++) {
     var transformed = transforms[i](identifier).trim()
-    if (transformed !== identifier && valid(transformed)) {
+    if (transformed !== identifier && valid(transformed).validForNewPackages) {
       return transformed
     }
   }
@@ -223,7 +214,7 @@ module.exports = function (identifier) {
     throw Error('Invalid argument. Expected non-empty string.')
   }
   identifier = identifier.replace(/\+$/, '').trim()
-  if (valid(identifier)) {
+  if (valid(identifier).validForNewPackages) {
     return identifier
   }
   var transformed = validTransformation(identifier)
@@ -231,7 +222,7 @@ module.exports = function (identifier) {
     return transformed
   }
   transformed = anyCorrection(identifier, function (argument) {
-    if (valid(argument)) {
+    if (valid(argument).validForNewPackages) {
       return argument
     }
     return validTransformation(argument)

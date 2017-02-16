@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com)",
   "dependencies": {
-    "spdx-expression-parse": "^1.0.4"
+    "validate-npm-package-license": "^3.0.1"
   },
   "devDependencies": {
     "defence-cli": "^1.0.1",
