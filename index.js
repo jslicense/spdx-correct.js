@@ -147,7 +147,9 @@ var transforms = [
 
 var licensesWithVersions = spdxLicenseIds.map(function (id) {
   var match = /^(.*)-\d\.\d$/.exec(id)
-  return match && [match[0], match[1]] || [id, null]
+  return match
+    ? [match[0], match[1]]
+    : [id, null]
 })
 
 var licensesWithVersionsGrouped = licensesWithVersions.reduce(function (acc, item) {
