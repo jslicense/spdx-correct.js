@@ -1,4 +1,5 @@
 var parse = require('spdx-expression-parse')
+var spdxLicenseIds = require('spdx-license-ids')
 
 function valid (string) {
   try {
@@ -144,6 +145,39 @@ var transforms = [
   }
 ]
 
+var licensesWithVersions = spdxLicenseIds
+  .map(function (id) {
+    var match = /^(.*)-\d+\.\d+$/.exec(id)
+    return match
+      ? [match[0], match[1]]
+      : [id, null]
+  })
+  .reduce(function (objectMap, item) {
+    var key = item[1]
+    objectMap[key] = objectMap[key] || []
+    objectMap[key].push(item[0])
+    return objectMap
+  }, {})
+
+var licensesWithOneVersion = Object.keys(licensesWithVersions)
+  .map(function makeEntries (key) {
+    return [key, licensesWithVersions[key]]
+  })
+  .filter(function identifySoleVersions (item) {
+    return (
+      // Licenses has just one valid version suffix.
+      item[1].length === 1 &&
+      item[0] !== null &&
+      // APL will be considered Apache, rather than APL-1.0
+      item[0] !== 'APL'
+    )
+  })
+  .map(function createLastResorts (item) {
+    return [item[0], item[1][0]]
+  })
+
+licensesWithVersions = undefined
+
 // If all else fails, guess that strings containing certain substrings
 // meant to identify certain licenses.
 var lastResorts = [
@@ -170,7 +204,7 @@ var lastResorts = [
   ['MPL', 'MPL-2.0'],
   ['X11', 'X11'],
   ['ZLIB', 'Zlib']
-]
+].concat(licensesWithOneVersion)
 
 var SUBSTRING = 0
 var IDENTIFIER = 1
