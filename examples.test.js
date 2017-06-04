@@ -321,6 +321,7 @@ var examples = {
   'MTI': 'MIT',
   'MiT': 'MIT',
   'Mit': 'MIT',
+  'MIT +no-false-attribs': 'MITNFA',
   'Mozilla Public License 1.1': 'MPL-1.1',
   'Mozilla Public License 2.0': 'MPL-2.0',
   'Mozilla Public License version 2': 'MPL-2.0',
