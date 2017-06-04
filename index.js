@@ -141,6 +141,10 @@ var transforms = [
       .replace(/ (\d)/, '-$1')
       .replace(/ ?International/, '') +
       '-4.0'
+  },
+  // e.g. 'EPL'
+  function (argument) {
+    return argument + '-1.0'
   }
 ]
 
