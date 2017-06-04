@@ -200,6 +200,7 @@ var lastResorts = [
   ['GNU', 'GPL-3.0'],
   ['LGPL', 'LGPL-3.0'],
   ['GPL', 'GPL-3.0'],
+  ['MIT +NO-FALSE-ATTRIBS', 'MITNFA'],
   ['MIT', 'MIT'],
   ['MPL', 'MPL-2.0'],
   ['X11', 'X11'],
