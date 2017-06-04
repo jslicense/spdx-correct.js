@@ -299,7 +299,7 @@ var examples = {
   'MIT-Style': 'MIT',
   'MIT-like': 'MIT',
   'MIT/X': 'MIT',
-  'MIT/X11': 'MIT',
+  'MIT/X11': 'X11',
   'MIT2': 'MIT',
   'MITISC': 'MIT',
   'MIT]': 'MIT',
