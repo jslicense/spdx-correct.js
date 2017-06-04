@@ -160,6 +160,7 @@ var examples = {
   'Eclipse Public License': 'EPL-1.0',
   'Eclipse Public License, Eclipse Distribution License': 'EPL-1.0',
   'Eclipse': 'EPL-1.0',
+  'EPL': 'EPL-1.0',
   'GLP': 'GPL-3.0',
   'GLPv3': 'GPL-3.0',
   'GNU Affero GPL 3.0': 'AGPL-3.0',
