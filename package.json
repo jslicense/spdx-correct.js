@@ -27,7 +27,7 @@
     "metadata"
   ],
   "license": "Apache-2.0",
-  "repository": "kemitchell/spdx-correct.js",
+  "repository": "jslicense/spdx-correct.js",
   "scripts": {
     "test": "defence README.md | replace-require-self | node && tape *.test.js",
     "lint": "standard && standard-markdown"
