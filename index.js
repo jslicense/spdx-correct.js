@@ -210,6 +210,9 @@ var lastResorts = [
 var SUBSTRING = 0
 var IDENTIFIER = 1
 
+// In some cases, we don't want to guess anything, so we return null
+var exceptions = ['UNLICENSED']
+
 var validTransformation = function (identifier) {
   for (var i = 0; i < transforms.length; i++) {
     var transformed = transforms[i](identifier).trim()
@@ -229,6 +232,10 @@ var validLastResort = function (identifier) {
     }
   }
   return null
+}
+
+var validException = function (identifier) {
+  return exceptions.indexOf(identifier.toUpperCase()) > -1
 }
 
 var anyCorrection = function (identifier, check) {
@@ -260,6 +267,9 @@ module.exports = function (identifier) {
   identifier = identifier.replace(/\+$/, '').trim()
   if (valid(identifier)) {
     return identifier
+  }
+  if (validException(identifier)) {
+    return null
   }
   var transformed = validTransformation(identifier)
   if (transformed !== null) {
