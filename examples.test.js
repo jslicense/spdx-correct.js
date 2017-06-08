@@ -355,6 +355,8 @@ var examples = {
   'Zlib': 'Zlib',
   'Zlib/libpng': 'Zlib',
   'mit': 'MIT',
+  'EPL': 'EPL-1.0',
+  'epl': 'EPL-1.0',
   '© 2014 WTFPL – Do What the Fuck You Want to Public License.': 'WTFPL'
 }
 /* eslint-enable max-len */

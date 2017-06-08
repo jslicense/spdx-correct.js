@@ -196,6 +196,7 @@ var lastResorts = [
   ['BOOST', 'BSL-1.0'],
   ['BSD', 'BSD-2-Clause'],
   ['ECLIPSE', 'EPL-1.0'],
+  ['EPL', 'EPL-1.0'],
   ['FUCK', 'WTFPL'],
   ['GNU', 'GPL-3.0'],
   ['LGPL', 'LGPL-3.0'],
