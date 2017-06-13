@@ -18,6 +18,9 @@
     "standard-markdown": "^2.3.0",
     "tape": "~4.0.0"
   },
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "SPDX",
     "law",
