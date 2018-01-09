@@ -114,9 +114,17 @@ var transforms = [
       .replace(/\s*V\s*(\d)/, '-$1')
       .replace(/(\d)$/, '$1.0')
   },
+  // e.g. 'GPL-2.0', 'GPL-3.0'
+  function (argument) {
+    if (argument.indexOf('3.0') !== -1) {
+      return argument + '-or-later'
+    } else {
+      return argument + '-only'
+    }
+  },
   // e.g. 'GPL-2.0-'
   function (argument) {
-    return argument.slice(0, argument.length - 1)
+    return argument + 'only'
   },
   // e.g. 'GPL2'
   function (argument) {
@@ -202,22 +210,22 @@ var lastResorts = [
   ['2-CLAUSE', 'BSD-2-Clause'],
   ['3 CLAUSE', 'BSD-3-Clause'],
   ['3-CLAUSE', 'BSD-3-Clause'],
-  ['AFFERO', 'AGPL-3.0'],
-  ['AGPL', 'AGPL-3.0'],
+  ['AFFERO', 'AGPL-3.0-or-later'],
+  ['AGPL', 'AGPL-3.0-or-later'],
   ['APACHE', 'Apache-2.0'],
   ['ARTISTIC', 'Artistic-2.0'],
-  ['Affero', 'AGPL-3.0'],
+  ['Affero', 'AGPL-3.0-or-later'],
   ['BEER', 'Beerware'],
   ['BOOST', 'BSL-1.0'],
   ['BSD', 'BSD-2-Clause'],
   ['CDDL', 'CDDL-1.1'],
   ['ECLIPSE', 'EPL-1.0'],
   ['FUCK', 'WTFPL'],
-  ['GNU', 'GPL-3.0'],
-  ['LGPL', 'LGPL-3.0'],
-  ['GPLV1', 'GPL-1.0'],
-  ['GPLV2', 'GPL-2.0'],
-  ['GPL', 'GPL-3.0'],
+  ['GNU', 'GPL-3.0-or-later'],
+  ['LGPL', 'LGPL-3.0-or-later'],
+  ['GPLV1', 'GPL-1.0-only'],
+  ['GPLV2', 'GPL-2.0-only'],
+  ['GPL', 'GPL-3.0-or-later'],
   ['MIT +NO-FALSE-ATTRIBS', 'MITNFA'],
   ['MIT', 'MIT'],
   ['MPL', 'MPL-2.0'],
@@ -277,11 +285,11 @@ module.exports = function (identifier) {
   }
   identifier = identifier.replace(/\+$/, '').trim()
   if (valid(identifier)) {
-    return identifier
+    return upgradeGPLs(identifier)
   }
   var transformed = validTransformation(identifier)
   if (transformed !== null) {
-    return transformed
+    return upgradeGPLs(transformed)
   }
   transformed = anyCorrection(identifier, function (argument) {
     if (valid(argument)) {
@@ -290,15 +298,29 @@ module.exports = function (identifier) {
     return validTransformation(argument)
   })
   if (transformed !== null) {
-    return transformed
+    return upgradeGPLs(transformed)
   }
   transformed = validLastResort(identifier)
   if (transformed !== null) {
-    return transformed
+    return upgradeGPLs(transformed)
   }
   transformed = anyCorrection(identifier, validLastResort)
   if (transformed !== null) {
-    return transformed
+    return upgradeGPLs(transformed)
   }
   return null
+}
+
+function upgradeGPLs (value) {
+  if ([
+    'GPL-1.0', 'LGPL-1.0', 'AGPL-1.0',
+    'GPL-2.0', 'LGPL-2.0', 'AGPL-2.0',
+    'LGPL-2.1'
+  ].indexOf(value) !== -1) {
+    return value + '-only'
+  } else if (['GPL-3.0', 'LGPL-3.0', 'AGPL-3.0'].indexOf(value) !== -1) {
+    return value + '-or-later'
+  } else {
+    return value
+  }
 }
