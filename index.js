@@ -159,11 +159,11 @@ var transforms = [
   function (argument) {
     return 'CC-' +
       argument
-      .replace('Attribution', 'BY')
-      .replace('NonCommercial', 'NC')
-      .replace('NoDerivatives', 'ND')
-      .replace(/ (\d)/, '-$1')
-      .replace(/ ?International/, '') +
+        .replace('Attribution', 'BY')
+        .replace('NonCommercial', 'NC')
+        .replace('NoDerivatives', 'ND')
+        .replace(/ (\d)/, '-$1')
+        .replace(/ ?International/, '') +
       '-4.0'
   }
 ]
