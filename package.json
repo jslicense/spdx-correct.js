@@ -16,7 +16,7 @@
     "replace-require-self": "^1.0.0",
     "standard": "^10.0.3",
     "standard-markdown": "^4.0.2",
-    "tape": "^4.8.0"
+    "tape": "^4.9.0"
   },
   "files": [
     "index.js"
