@@ -204,7 +204,7 @@ var lastResorts = [
   ['3-CLAUSE', 'BSD-3-Clause'],
   ['AFFERO', 'AGPL-3.0'],
   ['AGPL', 'AGPL-3.0'],
-  // ['APACHE', 'Apache-2.0'], handled in snyk/spdx-normalize
+  ['APACHE', 'Apache-2.0'],
   ['ARTISTIC', 'Artistic-2.0'],
   ['Affero', 'AGPL-3.0'],
   ['BEER', 'Beerware'],
