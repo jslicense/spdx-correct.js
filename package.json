@@ -32,7 +32,7 @@
   "license": "Apache-2.0",
   "repository": "jslicense/spdx-correct.js",
   "scripts": {
-    "lint": "standard && standard-markdown",
+    "lint": "standard && standard-markdown README.md",
     "test": "defence README.md | replace-require-self | node && node test.js"
   }
 }
