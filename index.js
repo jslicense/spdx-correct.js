@@ -277,7 +277,8 @@ var anyCorrection = function (identifier, check) {
   return null
 }
 
-module.exports = function (identifier) {
+module.exports = function (identifier, options) {
+  options = { upgrade: true, ...options }
   var validArugment = (
     typeof identifier === 'string' &&
     identifier.trim().length !== 0
@@ -315,24 +316,25 @@ module.exports = function (identifier) {
     return upgradeGPLs(transformed)
   }
   return null
-}
 
-function upgradeGPLs (value) {
-  if ([
-    'GPL-1.0', 'LGPL-1.0', 'AGPL-1.0',
-    'GPL-2.0', 'LGPL-2.0', 'AGPL-2.0',
-    'LGPL-2.1'
-  ].indexOf(value) !== -1) {
-    return value + '-only'
-  } else if ([
-    'GPL-1.0+', 'GPL-2.0+', 'GPL-3.0+',
-    'LGPL-2.0+', 'LGPL-2.1+', 'LGPL-3.0+',
-    'AGPL-1.0+', 'AGPL-3.0+'
-  ].indexOf(value) !== -1) {
-    return value.replace(/\+$/, '-or-later')
-  } else if (['GPL-3.0', 'LGPL-3.0', 'AGPL-3.0'].indexOf(value) !== -1) {
-    return value + '-or-later'
-  } else {
-    return value
+  function upgradeGPLs (value) {
+    if (!options.upgrade) return value
+    if ([
+      'GPL-1.0', 'LGPL-1.0', 'AGPL-1.0',
+      'GPL-2.0', 'LGPL-2.0', 'AGPL-2.0',
+      'LGPL-2.1'
+    ].indexOf(value) !== -1) {
+      return value + '-only'
+    } else if ([
+      'GPL-1.0+', 'GPL-2.0+', 'GPL-3.0+',
+      'LGPL-2.0+', 'LGPL-2.1+', 'LGPL-3.0+',
+      'AGPL-1.0+', 'AGPL-3.0+'
+    ].indexOf(value) !== -1) {
+      return value.replace(/\+$/, '-or-later')
+    } else if (['GPL-3.0', 'LGPL-3.0', 'AGPL-3.0'].indexOf(value) !== -1) {
+      return value + '-or-later'
+    } else {
+      return value
+    }
   }
 }

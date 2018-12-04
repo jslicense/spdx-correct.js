@@ -400,3 +400,49 @@ test('Empty String', function (test) {
   }, /invalid argument/i)
   test.end()
 })
+
+var noUpgradeExamples = {
+  'GPL 2': 'GPL-2.0',
+  'GPL 2.0': 'GPL-2.0',
+  'GPL 3': 'GPL-3.0',
+  'gpl-3.0': 'GPL-3.0',
+  'GPL 3.0': 'GPL-3.0',
+  'GPL V2': 'GPL-2.0',
+  'GPL V3': 'GPL-3.0',
+  'GPL V3.0': 'GPL-3.0',
+  'GPL Version 3': 'GPL-3.0',
+  'GPL v.2': 'GPL-2.0',
+  'GPL v2': 'GPL-2.0',
+  'GPL v3': 'GPL-3.0',
+  'GPL v3+': 'GPL-3.0+',
+  'GPL v3.0': 'GPL-3.0',
+  'GPL': 'GPL-3.0-or-later',
+  'GPL-1': 'GPL-1.0',
+  'GPL-2': 'GPL-2.0',
+  'GPL-1.0+': 'GPL-1.0+',
+  'GPL-2.0-': 'GPL-2.0-only',
+  'GPL-2.0+': 'GPL-2.0+',
+  'GPL-3': 'GPL-3.0',
+  'GPL-V3': 'GPL-3.0-or-later',
+  'GPL2': 'GPL-2.0',
+  'GPL2+': 'GPL-2.0+',
+  'GPL3': 'GPL-3.0',
+  'GPL3.0': 'GPL-3.0',
+  'GPL3.0+': 'GPL-3.0+'
+}
+
+test('Opt out of upgrades', function (test) {
+  Object.keys(noUpgradeExamples)
+    .forEach(function (input) {
+      var corrected = noUpgradeExamples[input]
+      test.test(input, function (test) {
+        test.equal(
+          correct(input, { upgrade: false }),
+          corrected,
+          'corrects "' + input + '" to "' + corrected + '"'
+        )
+        test.end()
+      })
+    })
+  test.end()
+})
