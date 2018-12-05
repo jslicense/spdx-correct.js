@@ -6,7 +6,8 @@
   "contributors": [
     "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com)",
     "Christian Zommerfelds <aero_super@yahoo.com>",
-    "Tal Einat <taleinat@gmail.com>"
+    "Tal Einat <taleinat@gmail.com>",
+    "Dan Butvinik <butvinik@outlook.com>"
   ],
   "dependencies": {
     "spdx-expression-parse": "^3.0.0",
