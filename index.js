@@ -277,7 +277,12 @@ var anyCorrection = function (identifier, check) {
   return null
 }
 
-module.exports = function (identifier) {
+module.exports = function (identifier, options) {
+  options = options || {}
+  var upgrade = options.upgrade === undefined ? true : !!options.upgrade
+  function postprocess (value) {
+    return upgrade ? upgradeGPLs(value) : value
+  }
   var validArugment = (
     typeof identifier === 'string' &&
     identifier.trim().length !== 0
@@ -287,15 +292,15 @@ module.exports = function (identifier) {
   }
   identifier = identifier.trim()
   if (valid(identifier)) {
-    return upgradeGPLs(identifier)
+    return postprocess(identifier)
   }
   var noPlus = identifier.replace(/\+$/, '').trim()
   if (valid(noPlus)) {
-    return upgradeGPLs(noPlus)
+    return postprocess(noPlus)
   }
   var transformed = validTransformation(identifier)
   if (transformed !== null) {
-    return upgradeGPLs(transformed)
+    return postprocess(transformed)
   }
   transformed = anyCorrection(identifier, function (argument) {
     if (valid(argument)) {
@@ -304,15 +309,15 @@ module.exports = function (identifier) {
     return validTransformation(argument)
   })
   if (transformed !== null) {
-    return upgradeGPLs(transformed)
+    return postprocess(transformed)
   }
   transformed = validLastResort(identifier)
   if (transformed !== null) {
-    return upgradeGPLs(transformed)
+    return postprocess(transformed)
   }
   transformed = anyCorrection(identifier, validLastResort)
   if (transformed !== null) {
-    return upgradeGPLs(transformed)
+    return postprocess(transformed)
   }
   return null
 }
