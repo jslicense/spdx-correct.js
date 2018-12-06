@@ -446,3 +446,26 @@ test('Opt out of upgrades', function (test) {
     })
   test.end()
 })
+
+var thresholdExamples = {
+  ' Mit': 'MIT',
+  'mit': 'MIT',
+  'This is not MIT licensed': null,
+  'Anything except GPL': null
+}
+
+test('Threshold for correcting', function (test) {
+  Object.keys(thresholdExamples)
+    .forEach(function (input) {
+      var corrected = thresholdExamples[input]
+      test.test(input, function (test) {
+        test.equal(
+          correct(input, { upgrade: false }),
+          corrected,
+          'corrects "' + input + '" to "' + corrected + '"'
+        )
+        test.end()
+      })
+    })
+  test.end()
+})
