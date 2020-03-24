@@ -140,15 +140,23 @@ var transforms = [
   },
   // e.g. 'New BSD license'
   function (argument) {
-    return argument.replace(/\b(Modified|New|Revised)(-| )?BSD/i, 'BSD-3-Clause')
+    return argument.replace(/\b(Modified|New|Revised)(-| )?BSD((-| )License)?/i, 'BSD-3-Clause')
   },
   // e.g. 'Simplified BSD license'
   function (argument) {
-    return argument.replace(/\bSimplified(-| )?BSD/i, 'BSD-2-Clause')
+    return argument.replace(/\bSimplified(-| )?BSD((-| )License)?/i, 'BSD-2-Clause')
   },
   // e.g. 'Free BSD license'
   function (argument) {
-    return argument.replace(/\b(Free|Net)(-| )?BSD/i, 'BSD-2-Clause-$1BSD')
+    return argument.replace(/\b(Free|Net)(-| )?BSD((-| )License)?/i, 'BSD-2-Clause-$1BSD')
+  },
+  // e.g. 'Clear BSD license'
+  function (argument) {
+    return argument.replace(/\bClear(-| )?BSD((-| )License)?/i, 'BSD-3-Clause-Clear')
+  },
+  // e.g. 'Old BSD License'
+  function (argument) {
+    return argument.replace(/\b(Old|Original)(-| )?BSD((-| )License)?/i, 'BSD-4-Clause')
   },
   // e.g. 'BY-NC-4.0'
   function (argument) {
