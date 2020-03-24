@@ -138,6 +138,18 @@ var transforms = [
   function (argument) {
     return argument.replace(/(-| )clause(-| )(\d)/, '-$3-Clause')
   },
+  // e.g. 'New BSD license'
+  function (argument) {
+    return argument.replace(/\b(Modified|New|Revised)(-| )?BSD/i, 'BSD-3-Clause')
+  },
+  // e.g. 'Simplified BSD license'
+  function (argument) {
+    return argument.replace(/\bSimplified(-| )?BSD/i, 'BSD-2-Clause')
+  },
+  // e.g. 'Free BSD license'
+  function (argument) {
+    return argument.replace(/\b(Free|Net)(-| )?BSD/i, 'BSD-2-Clause-$1BSD')
+  },
   // e.g. 'BY-NC-4.0'
   function (argument) {
     return 'CC-' + argument
