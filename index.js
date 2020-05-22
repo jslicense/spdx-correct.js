@@ -49,6 +49,7 @@ var transpositions = [
   ['GNU GENERAL PUBLIC LICENSE', 'GPL'],
   ['MTI', 'MIT'],
   ['Mozilla Public License', 'MPL'],
+  ['Universal Permissive License', 'UPL'],
   ['WTH', 'WTF'],
   ['-License', '']
 ]

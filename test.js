@@ -346,6 +346,8 @@ var examples = {
   'Public-domain (Unlicense)': 'Unlicense',
   'Standard 3-clause BSD': 'BSD-3-Clause',
   'The Unlicense': 'Unlicense',
+  'Universal Permissive License': 'UPL-1.0',
+  'UPL': 'UPL-1.0',
   'UNLICENSE': 'Unlicense',
   'UNLICENSED': 'Unlicense',
   'UNLICNSE': 'Unlicense',
