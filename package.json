@@ -16,7 +16,7 @@
   "devDependencies": {
     "defence-cli": "^3.0.1",
     "replace-require-self": "^1.0.0",
-    "standard": "^11.0.0",
+    "standard": "^14.3.4",
     "standard-markdown": "^4.0.2",
     "tape": "^5.0.1"
   },
