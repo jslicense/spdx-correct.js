@@ -186,6 +186,10 @@ var transforms = [
         .replace(/ (\d)/, '-$1')
         .replace(/ ?International/, '') +
       '-4.0'
+  },
+  // e.g. 'GNU (LESSER GENERAL PUBLIC LICENSE | LGPL)
+  function (argument) {
+    return argument.replace(/GNU (lesser general public license|lgpl).*/gi, 'LGPL-3.0-or-later')
   }
 ]
 
